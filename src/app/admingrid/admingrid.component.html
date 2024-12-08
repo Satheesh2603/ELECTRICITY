@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <h2 class="text-left mb-4">Customer List</h2>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>SNo</th>
+          <th>Customer ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Phone No</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers; let i = index" (click)="onRowClick(customer)" class="table-hover">
+          <td>{{ i + 1 }}</td> <!-- Serial number -->
+          <td>{{ customer.customerId }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.address }}</td>
+          <td>{{ customer.phone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

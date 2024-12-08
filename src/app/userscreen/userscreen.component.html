@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <!-- Header Section -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-left">Pending Bill</h2>
+    <button class="btn btn-success" (click)="paymenthistory()">Payment History</button>
+  </div>
+
+  <!-- Table Section -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>SNo</th>
+        <th>Bill Id</th>
+        <th>Due Date</th>
+        <th>Electricity Used</th>
+        <th>Bill Amount</th>
+        <th>Paid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let customer of customers; let i = index"
+        (click)="onRowClick(customer)"
+        class="table-hover"
+      >
+        <td>{{ i + 1 }}</td> <!-- Serial number -->
+        <td>{{ customer.billId }}</td>
+        <td>{{ customer.duedate }}</td>
+        <td>{{ customer.electricityUsed }}</td>
+        <td>{{ customer.billAmount }}</td>
+        <td>{{ customer.isPaid }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

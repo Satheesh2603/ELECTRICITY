@@ -1,0 +1,33 @@
+<div class=" style container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+      <h2 class="text-center mb-4">Admin Login</h2>
+      <form #adminForm="ngForm" (ngSubmit)="onSubmit(adminForm)" class="form-group">
+        <div class="mb-3">
+          <label for="adminUsername" class="form-label">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="adminUsername"
+            placeholder="Enter username"
+            name="username"
+            [(ngModel)]="adminLogin.username"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="adminPassword" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="adminPassword"
+            placeholder="Enter password"
+            name="password"
+            [(ngModel)]="adminLogin.password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="!adminForm.valid">Login</button>
+      </form>
+    </div>
+  </div>
+  

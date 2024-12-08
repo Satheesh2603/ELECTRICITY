@@ -1,0 +1,77 @@
+<div class="payment-page">
+  <!-- Header -->
+  <!-- <header class="payment-header">
+    <h1>Payment Page</h1>
+  </header> -->
+
+  <!-- Form Container -->
+  <div class="payment-container">
+    <header class="payment-header">
+      <h3>Payment Page</h3>
+    </header>
+    <br>
+    <form (ngSubmit)="onSubmit()" #paymentForm="ngForm">
+      <!-- Bill ID -->
+      <div class="form-group">
+        <label for="billId">Bill ID</label>
+        <input
+          type="text"
+          id="billId"
+          name="billId"
+          [(ngModel)]="paymentDetails.billId"
+          class="form-control"
+          required
+          disabled
+        />
+      </div>
+
+      <!-- Payment Method -->
+      <div class="form-group">
+        <label for="paymentMethod">Payment Method</label>
+        <select
+          id="paymentMethod"
+          name="paymentMethod"
+          [(ngModel)]="paymentDetails.paymentMethod"
+          class="form-control"
+          required
+        >
+          <option value="Credit Card">Credit Card</option>
+          <option value="Debit Card">Debit Card</option>
+          <option value="Net Banking">Net Banking</option>
+          <option value="UPI">UPI</option>
+        </select>
+      </div>
+
+      <!-- Amount Paid -->
+      <div class="form-group">
+        <label for="amountPaid">Amount Paid</label>
+        <input
+          type="number"
+          id="amountPaid"
+          name="amountPaid"
+          [(ngModel)]="paymentDetails.amountPaid"
+          class="form-control"
+          required
+          disabled
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary" [disabled]="!paymentForm.valid">
+        Submit Payment
+      </button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="popup" id="trayPopup" class="trayPopup">
+  <div class="trayPopupContent" >
+
+    <h3 style="margin-left: 136px;">Payment has been done successfully</h3>
+
+    <button class="print-btn">OK</button>
+
+
+
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="text-left">Payment History</h2>
+     
+    </div>
+  
+    <!-- Table Section -->
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>SNo</th>
+          <th>Payment Id</th>
+          <th>Bill Id</th>
+          <th>Amount Paid</th>
+          <th>Payment Method</th>
+          <th>Payment Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let customer of customers; let i = index"
+          
+          class="table-hover"
+        >
+          <td>{{ i + 1 }}</td> <!-- Serial number -->
+          <td>{{ customer.paymentId }}</td>
+          <td>{{ customer.billId}}</td>
+          <td>{{ customer.amountPaid }}</td>
+          <td>{{ customer.paymentdate }}</td>
+          <td>{{ customer.paymentMethod }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

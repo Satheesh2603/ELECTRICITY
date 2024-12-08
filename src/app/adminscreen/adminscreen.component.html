@@ -1,0 +1,94 @@
+<div class="container mt-5">
+    <!-- Header Section with Bill Generation and Pending Bills -->
+    <div class="d-flex justify-content-between mb-4">
+      <h2 class="text-left">Add New Customer</h2> <!-- Left-aligned and Blue Color -->
+      <div class="btn-group" role="group">
+        <button class="btn btn-success" (click)="generateBill()">Bill Generation</button>
+        <!-- <button class="btn btn-warning" (click)="viewPendingBills()">Pending Bills</button> -->
+      </div>
+    </div>
+  
+    <!-- Customer Form Container with Blue Box -->
+    <div class="card p-4 ">
+      <form #Formadmin="ngForm" (ngSubmit)="onSubmit(Formadmin)">
+        <!-- First Row: Customer ID, Name, and Email -->
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="customerId" class="form-label">Customer ID</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id="customerId" 
+              [(ngModel)]="customer.customerId" 
+              name="customerId" 
+              required 
+            />
+          </div>
+  
+          <div class="col-md-4">
+            <label for="name" class="form-label">Name</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id="name" 
+              [(ngModel)]="customer.name" 
+              name="name" 
+              required 
+            />
+          </div>
+  
+          <div class="col-md-4">
+            <label for="email" class="form-label">Email</label>
+            <input 
+              type="email" 
+              class="form-control" 
+              id="email" 
+              [(ngModel)]="customer.email" 
+              name="email" 
+              required 
+            />
+          </div>
+        </div>
+  
+        <!-- Second Row: Address and Phone -->
+        <div class="row mb-3">
+          <div class="col-md-4">
+              <label for="address" class="form-label">Address</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="address" 
+                [(ngModel)]="customer.address" 
+                name="address" 
+                required 
+              />
+          </div>
+              
+          <div class="col-md-4">
+            <label for="phone" class="form-label">Phone No</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id="phone" 
+              [(ngModel)]="customer.phone" 
+              name="phone" 
+              required 
+            />
+          </div>
+  
+          <!-- Empty columns to maintain the 3 fields per row structure -->
+          <div class="col-md-4"></div>
+        </div>
+  
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary">Save Customer</button>
+          <button type="button" class="btn btn-danger" (click)="deletecustomer()">Delete</button>
+          <button type="button" class="btn btn-secondary" (click)="reset(Formadmin)">Reset</button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Admin Grid -->
+    <app-admingrid (rowClicked)="onRowClick($event)"></app-admingrid>
+  </div>
